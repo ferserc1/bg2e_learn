@@ -8,14 +8,15 @@ import { registerComponents } from "bg2e-js/ts/scene/index.ts";
 import Camera, { OpticalProjectionStrategy } from "bg2e-js/ts/scene/Camera.ts";
 import OrbitCameraController from "bg2e-js/ts/scene/OrbitCameraController.ts";
 import SmoothOrbitCameraController from "bg2e-js/ts/scene/SmoothOrbitCameraController.ts";
+import Node from "bg2e-js/ts/scene/Node.ts";
 
 class MyAppController extends SceneAppController {
   async loadScene() {
-
+    const sceneRoot = new Node("Scene Root");
     
     this.updateOnInputEvents = true;
     this.updateInputEventsFrameCount = 120;
-    return await super.loadScene();
+    return sceneRoot;
   }
 }
 
