@@ -1,0 +1,114 @@
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Node.js / TypeScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnp.*
+.npmrc
+.env
+.env.*
+dist/
+build/
+out/
+.tsbuildinfo
+*.tsbuildinfo
+coverage/
+.nyc_output/
+.cache/
+.parcel-cache/
+.turbo/
+.next/
+.nuxt/
+.svelte-kit/
+.vite/
+
+# C++ build artifacts
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.pdb
+*.idb
+*.ilk
+*.dSYM/
+*.dSYM.zip
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+Makefile
+compile_commands.json
+
+# IDEs and editors
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+
+# Visual Studio Community / MSBuild
+Debug/
+Release/
+x64/
+x86/
+ipch/
+*.tlog
+*.lastbuildstate
+*.pch
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcworkspace
+*.xcuserdata/
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# Logs
+*.log
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
