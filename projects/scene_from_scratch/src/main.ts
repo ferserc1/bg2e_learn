@@ -9,11 +9,24 @@ import Camera, { OpticalProjectionStrategy } from "bg2e-js/ts/scene/Camera.ts";
 import OrbitCameraController from "bg2e-js/ts/scene/OrbitCameraController.ts";
 import SmoothOrbitCameraController from "bg2e-js/ts/scene/SmoothOrbitCameraController.ts";
 import Node from "bg2e-js/ts/scene/Node.ts";
+import Transform from "bg2e-js/ts/scene/Transform.js";
+import Mat4 from "bg2e-js/ts/math/Mat4.ts";
 
 class MyAppController extends SceneAppController {
   async loadScene() {
     const sceneRoot = new Node("Scene Root");
     
+    const sceneElements = new Node("Scene Elements");
+    sceneRoot.addChild(sceneElements);
+    sceneElements.addComponent(new Transform(Mat4.MakeTranslation(5, 0, 0)));
+
+    const box = new Node("Box");
+    sceneElements.addChild(box);
+    box.addComponent(new Transform(Mat4.MakeTranslation(0, 5, 0)));
+
+    const boxWorldMatrix = Transform.GetWorldMatrix(box);
+    console.log("Box world position: ", boxWorldMatrix.translation);
+
     this.updateOnInputEvents = true;
     this.updateInputEventsFrameCount = 120;
     return sceneRoot;
