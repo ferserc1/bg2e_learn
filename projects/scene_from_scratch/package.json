@@ -1,5 +1,5 @@
 {
-  "name": "basic_project",
+  "name": "scene_from_scratch",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,6 +14,6 @@
     "vite-plugin-static-copy": "^3.2.0"
   },
   "dependencies": {
-    "bg2e-js": "^2.2.9"
+    "bg2e-js": "^2.2.12"
   }
 }
