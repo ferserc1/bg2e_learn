@@ -8,7 +8,7 @@ import Node from "bg2e-js/ts/scene/Node.ts";
 import Transform from "bg2e-js/ts/scene/Transform.js";
 import Drawable from "bg2e-js/ts/scene/Drawable.js";
 import Mat4 from "bg2e-js/ts/math/Mat4.ts";
-import { createSphere, createPlane, createCube } from "bg2e-js/ts/primitives/index.ts";
+import { createSphere, createPlane } from "bg2e-js/ts/primitives/index.ts";
 import Material from "bg2e-js/ts/base/Material.ts";
 import Color from "bg2e-js/ts/base/Color.js";
 import Light from "bg2e-js/ts/base/Light.js";
