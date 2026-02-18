@@ -1,7 +1,5 @@
-import Canvas from "bg2e-js/ts/app/Canvas.ts";
-import MainLoop, { FrameUpdate } from "bg2e-js/ts/app/MainLoop.ts";
+
 import SceneAppController from "bg2e-js/ts/render/SceneAppController.ts";
-import WebGLRenderer from "bg2e-js/ts/render/webgl/Renderer.ts";
 import Camera, { OpticalProjectionStrategy } from "bg2e-js/ts/scene/Camera.ts";
 import SmoothOrbitCameraController from "bg2e-js/ts/scene/SmoothOrbitCameraController.ts";
 import Node from "bg2e-js/ts/scene/Node.ts";
@@ -19,7 +17,7 @@ import EnvironmentComponent from "bg2e-js/ts/scene/EnvironmentComponent.js";
 import type PolyList from "bg2e-js/ts/base/PolyList.js";
 import FindNodeVisitor from "bg2e-js/ts/scene/FindNodeVisitor.js";
 
-class MyAppController extends SceneAppController {
+export default class MyAppController extends SceneAppController {
   private _spherePlist: PolyList | null = null;
 
   private async createSphereNode({
@@ -50,6 +48,7 @@ class MyAppController extends SceneAppController {
   }
 
   async loadScene() {
+    console.log("Test");
     const sceneRoot = new Node("Scene Root");
     
     const sceneElements = new Node("Scene Elements");
@@ -164,16 +163,3 @@ class MyAppController extends SceneAppController {
   }
 }
 
-window.onload = async () => {
-  const canvasElem = document.getElementById("app") as HTMLCanvasElement;
-  if (!canvasElem) {
-    console.error("Canvas element not found");
-    return;
-  }
-
-  const canvas = new Canvas(canvasElem, new WebGLRenderer());
-  const appController = new MyAppController();
-  const mainLoop = new MainLoop(canvas, appController);
-  mainLoop.updateMode = FrameUpdate.MANUAL;
-  await mainLoop.run();
-}
