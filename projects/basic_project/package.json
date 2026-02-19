@@ -14,6 +14,6 @@
     "vite-plugin-static-copy": "^3.2.0"
   },
   "dependencies": {
-    "bg2e-js": "^2.2.8"
+    "bg2e-js": "^2.3.5"
   }
 }

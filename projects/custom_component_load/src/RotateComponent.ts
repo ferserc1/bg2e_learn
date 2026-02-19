@@ -1,5 +1,6 @@
 import Component from "bg2e-js/ts/scene/Component.ts";
 import Bg2KeyboardEvent, { SpecialKey } from "bg2e-js/ts/app/Bg2KeyboardEvent.ts";
+import type Loader from "bg2e-js/ts/db/Loader.js";
 
 export default class RotateComponent extends Component {
     private _animation: boolean = false;
@@ -22,7 +23,7 @@ export default class RotateComponent extends Component {
         return newComponent;
     }
 
-    async deserialize(sceneData: any, _: any): Promise<void> {
+    async deserialize(sceneData: any, _: Loader): Promise<void> {
         if (sceneData.animation !== undefined && typeof sceneData.animation === "boolean") {
             this._animation = sceneData.animation;
         }
@@ -53,7 +54,9 @@ export default class RotateComponent extends Component {
             // Multiplicamos por la velocidad
             this.transform.matrix.rotate(delta * 0.002 * this._speed, 0, 1, 0);
             const numFrames = 10;
-            this.node!.postRedisplayFrames = this.node!.postRedisplayFrames < numFrames ? this.node!.postRedisplayFrames + 1 : numFrames;
+            this.node!.postRedisplayFrames = this.node!.postRedisplayFrames < numFrames
+                ? numFrames
+                : this.node!.postRedisplayFrames;
         }
     }
 

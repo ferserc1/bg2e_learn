@@ -12,7 +12,9 @@ export default class RotateComponent extends Component {
         if (this.transform && this._animation) {
             this.transform.matrix.rotate(delta * 0.002, 0, 1, 0);
             const numFrames = 10;
-            this.node!.postRedisplayFrames = this.node!.postRedisplayFrames < numFrames ? this.node!.postRedisplayFrames + 1 : numFrames;
+            this.node!.postRedisplayFrames = this.node!.postRedisplayFrames < numFrames
+                ? numFrames
+                : this.node!.postRedisplayFrames;
         }
     }
 
