@@ -48,7 +48,6 @@ export default class MyAppController extends SceneAppController {
   }
 
   async loadScene() {
-    console.log("Test");
     const sceneRoot = new Node("Scene Root");
     
     const sceneElements = new Node("Scene Elements");

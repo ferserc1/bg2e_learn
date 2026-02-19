@@ -5,15 +5,21 @@ import MyAppController from './AppController.ts'
 import WebGLRenderer from 'bg2e-js/ts/render/webgl/Renderer.js'
 import './App.css'
 import useBg2e from "bg2e-js/ts/react/useBg2e.ts";
+import type Canvas from 'bg2e-js/ts/app/Canvas.js'
+import type MainLoop from 'bg2e-js/ts/app/MainLoop.js'
+import { FrameUpdate } from 'bg2e-js/ts/app/MainLoop.js'
 
 function App() {
   const [count, setCount] = useState(0);
   useBg2e(
     "#bg2eCanvas",
     WebGLRenderer,
-    MyAppController
+    MyAppController,
+    (_: Canvas, mainLoop: MainLoop) => {
+      mainLoop.updateMode = FrameUpdate.MANUAL;
+    }
   );
-  
+ 
   return (
     <>
       <div>
