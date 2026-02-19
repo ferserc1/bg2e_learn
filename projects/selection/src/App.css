@@ -1,0 +1,28 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  z-index: 1;
+  position: absolute;
+  pointer-events: none;
+}
+
+.ui {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+
+a,button {
+  pointer-events: auto;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
