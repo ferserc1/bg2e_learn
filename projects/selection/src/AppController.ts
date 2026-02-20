@@ -179,10 +179,17 @@ export default class MyAppController extends SceneAppController {
   }
 
   async loadDone() : Promise<void> {
+
     if (this.selectionManager) {
+      this.selectionManager.multiSelectMode = false;
       this.selectionManager.onSelectionChanged("selectionCallback", (selection: SelectionChangedData[]) => {
         console.log("Selection changed:", selection);
       });
+    }
+
+    if (this.selectionHighlight) {
+      this.selectionHighlight.borderColor = new Color([1, 0, 0, 1]);
+      this.selectionHighlight.borderWidth = 8;
     }
   }
 }
