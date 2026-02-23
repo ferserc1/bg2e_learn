@@ -13,6 +13,7 @@ export default function App() {
   const [selection, setSelection] = useState<string[]>([]);
   const [selectionMode, setSelectionMode] = useState<SelectionMode>(SelectionMode.POLY_LIST);
   const [selectionEnabled, setSelectionEnabled] = useState<boolean>(true);
+  const [multiSelect, setMultiSelect] = useState<boolean>(false);
 
   const { mainLoop } = useBg2e(
     "#bg2eCanvas",
@@ -54,6 +55,14 @@ export default function App() {
       return !prev;
     })
   }
+
+  const handleMultiSelectChange = () => {
+    const appController = mainLoop?.appController as MyAppController;
+    if (appController && appController.selectionManager) {
+      appController.selectionManager.setMultiSelectMode(!multiSelect);
+    }
+    setMultiSelect(prev => !prev);
+  }
  
   return (
     <>
@@ -70,6 +79,7 @@ export default function App() {
             Switch Mode: {selectionMode === SelectionMode.POLY_LIST ? "Poly List" : "Object"}
           </button>
           <button onClick={handleSelectionToggle}>{ selectionEnabled ? "Disable" : "Enable" } Selection</button>
+          <button onClick={handleMultiSelectChange}>{ multiSelect ? "Multi Select" : "Single Select" }</button>
         </div>
       </div>
     </>
