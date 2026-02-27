@@ -4,7 +4,6 @@ import SceneAppController from "bg2e-js/ts/render/SceneAppController.ts";
 import WebGLRenderer from "bg2e-js/ts/render/webgl/Renderer.js";
 import Loader, { registerLoaderPlugin  } from "bg2e-js/ts/db/Loader.ts";
 import VitscnjLoaderPlugin from "bg2e-js/ts/db/VitscnjLoaderPlugin.ts";
-import { registerComponents } from "bg2e-js/ts/scene/index.ts";
 import Camera, { OpticalProjectionStrategy } from "bg2e-js/ts/scene/Camera.ts";
 import OrbitCameraController from "bg2e-js/ts/scene/OrbitCameraController.ts";
 import SmoothOrbitCameraController from "bg2e-js/ts/scene/SmoothOrbitCameraController.ts";
@@ -15,8 +14,6 @@ class MyAppController extends SceneAppController {
     registerLoaderPlugin(new VitscnjLoaderPlugin({
       bg2ioPath: 'bg2e/'
     }));
-
-    registerComponents();
 
     const loader = new Loader();
     const sceneRoot = await loader.loadNode("/test-scene/test-scene.vitscnj");
