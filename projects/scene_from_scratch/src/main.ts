@@ -160,6 +160,8 @@ class MyAppController extends SceneAppController {
     });
     console.log(positions);
 
+    this.mainLoop.postRedisplay({ frames: 120 });
+
     return sceneRoot;
   }
 }

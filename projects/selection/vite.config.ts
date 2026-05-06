@@ -1,36 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
-
-// Path to bg2io package
-const bg2ioPath = './node_modules/bg2io/';
-
-// Path to copy the bg2io WebAssembly resources
-const bg2ioDst = 'bg2e'
+import { copyBg2eAssets } from 'bg2e-js/ts/bg2e-vite.js';
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: `${bg2ioPath}/bg2io.js`,
-          dest: bg2ioDst
-        },
-        {
-          src: `${bg2ioPath}/bg2io.wasm`,
-          dest: bg2ioDst
-        }
-      ]
-    })
+    copyBg2eAssets()
   ],
   optimizeDeps: {
-    esbuildOptions: {
-      loader: {
-        ".glsl": "text",
-      },
-    },
+    exclude: ['bg2e-js']
   },
   assetsInclude: ["**/*.glsl"]
 })

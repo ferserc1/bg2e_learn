@@ -13,9 +13,7 @@ import { registerComponent } from "bg2e-js/ts/scene/Component.js";
 class MyAppController extends SceneAppController {
   async loadScene() {
 
-    registerLoaderPlugin(new VitscnjLoaderPlugin({
-      bg2ioPath: 'bg2e/'
-    }));
+    registerLoaderPlugin(new VitscnjLoaderPlugin({}));
 
     registerComponent("RotateComponent", RotateComponent);
 
